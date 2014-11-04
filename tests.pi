@@ -1,0 +1,18 @@
+def P(x) = (a)(x!a.P(a));
+
+def T1() = x?(y);
+def T2() = x?(y) + (w)(w!z);
+def T3() = a?(x) | a!y;
+def T4() = (a?(x) + c?(y)) | c!v;
+def T5() = P(x);
+def T6() = a?(x).a?(x).a?(x);
+def T7() = a?(b).b?(c).c?(d);
+
+lts T1 > t1;
+lts T2 > t2;
+lts T3 > t3;
+lts T4 > t4;
+lts T5 > t5;
+lts T6 > t6;
+lts T7 > t7;
+
