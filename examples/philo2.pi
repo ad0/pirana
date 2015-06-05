@@ -1,0 +1,33 @@
+def TicketGenerator(gen) =
+  new ticket1 in
+  new ticket2 in
+  gen!ticket1.gen!ticker2
+
+def Philo(gen, control, left, right) =
+  gen?(ticket).(
+    left?(_).right?(_).control!ticket.tau.PhiloBis(gen, control, left, right)
+  + right?(_).left?(_).control!ticket.tau.PhiloBis(gen, control, left, right)
+  )
+
+def PhiloBis(gen, control, left, right) =
+  control?(_).(
+    left!_.right!_.Philo(gen, control, left, right)
+  + right!_.left!_.Philo(gen, control, left, right)
+  )
+
+def Fork(fork) =
+  fork!_?fork(_).Fork(fork)
+
+def Controller(control) = control?(ticket).control!ticker.Controller(control)
+
+local gen in
+local fork1 in
+local fork2 in
+( Fork(fork1)
+| Fork(fork2)
+| Philo(gen, control, fork1, fork2)
+| Philo(gen, control, fork2, fork1)
+| TicketGenerator(gen)
+| Controller(control)
+| Controller(control)
+)
