@@ -11,6 +11,6 @@ cabal-version:     >=1.8
 executable pirana
   main-is:           Main.hs
   other-modules:     
-  build-depends:     base >=4.6, containers
+  build-depends:     base >=4.6, containers, parsec, mtl, array
   hs-source-dirs:    src
   ghc-options:       -Wall
